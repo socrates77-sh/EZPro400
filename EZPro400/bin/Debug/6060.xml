@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CHIP_TYPE>普通IO</CHIP_TYPE>
+<CHIP_NAME>MC30P6060</CHIP_NAME>
+ <CHIP_ID> 0x3316 </CHIP_ID>
+ <ID_ADDR> 0xffff </ID_ADDR>
+ <USER_ROM_START> 0x00 </USER_ROM_START>
+ <USER_ROM_SIZE>  0x03FF </USER_ROM_SIZE>
+ <CS_ADDR> 0x800d </CS_ADDR>
+ <CHIP_BIT> 16 </CHIP_BIT>
+ <VDD> 50 </VDD>
+ <VPP> 85 </VPP>
+ <OPTION>
+	<PAGE>
+		<address>
+			<1>0x8000</1>
+		 </address>
+		<MODE>
+			<annotation>MODE选择</annotation>
+		    <bit>BIT[2:0]</bit>
+			<010>0.5K字节MTP模式</010>
+			<011>0.5K字节MTP模式</011>
+			<10X>1K字节OTP模式</10X>
+		</MODE>
+		<Fix_High>
+			<bit>BIT[4:3]</bit>
+			<10>必须烧写为10</10>
+		</Fix_High>
+	</PAGE>
+	
+	<OPBIT0>
+	     <address>
+			<1>0x8001</1>
+		 </address>
+		 <VLVRS>
+		    <annotation>系统复位电压选择位</annotation>
+		    <bit>BIT[3:0]</bit>
+			<0000>LVR电压=1.2V</0000>
+			<0001>LVR电压=1.4V</0001>
+			<0010>LVR电压=1.5V</0010>
+			<0011>LVR电压=1.6V</0011>
+			<0100>LVR电压=1.8V</0100>
+			<0101>LVR电压=2.0V</0101>
+			<0110>LVR电压=2.2V</0110>
+			<0111>LVR电压=2.4V</0111>
+			<1000>LVR电压=2.5V</1000>
+			<1001>LVR电压=2.6V</1001>
+			<1010>LVR电压=2.7V</1010>
+			<1011>LVR电压=2.8V</1011>
+			<1100>LVR电压=3.0V</1100>
+			<1101>LVR电压=3.2V</1101>
+			<1110>LVR电压=3.6V</1110>
+			<1111>LVR电压=3.8V</1111>
+			
+		 </VLVRS>
+		 <MCLRE>
+		    <annotation>外部复位使能</annotation>
+			<bit>BIT[4]</bit>
+			<0>屏蔽外部复位功能</0>
+			<1>使能外部复位功能</1>
+		 </MCLRE>
+		 <FINTOSC>
+		    <annotation>内部RC振荡器频率选择</annotation>
+		    <bit>BIT[7:5]</bit>
+			<000>FAS</000>
+			<001>FAS/64</001>
+			<010>FAS/32</010>
+			<011>LIRC</011>
+			<100>FAS/8</100>
+			<101>FAS/4</101>
+			<110>FAS/2</110>
+			<111>FAS</111>
+		 </FINTOSC>
+		 <FCPUS>
+			<annotation>指令周期选择</annotation>
+			<bit>BIT[8]</bit>
+			<0>1个指令周期为2个机器周期</0>
+			<1>1个指令周期为4个机器周期</1>
+		 </FCPUS>
+		 <TWDT>
+		    <annotation>看门狗溢出时间及上电复位时间选择</annotation>
+		    <bit>BIT[11:9]</bit>
+			<000>PWRT = 140us;TWDT（no Prescaler）=72m</000>
+			<001>PWRT = 140us;TWDT（no Prescaler）=288ms</001>
+			<010>PWRT = 140us;TWDT（no Prescaler）= 4.5ms</010>
+			<011>PWRT = 140us;TWDT（no Prescaler）=18ms</011>
+			<100>PWRT = TWDT（no Prescaler）=72ms</100>
+			<101>PWRT = TWDT（no Prescaler）=288ms</101>
+			<110>PWRT = TWDT（no Prescaler）= 4.5ms</110>
+			<111>PWRT = TWDT（no Prescaler）=18ms</111>
+		 </TWDT>
+		 <WDTE>
+			<annotation>WDT使能</annotation>
+			<bit>BIT[12]</bit>
+			<0>关闭WDT</0>
+			<1>使能WDT</1>
+		 </WDTE>
+		 <CLKSEL>
+			<annotation>时钟选择选项</annotation>
+			<bit>BIT[13]</bit>
+			<0>外部时钟</0>
+			<1>内部时钟</1>
+		 </CLKSEL>
+		 
+	</OPBIT0>
+    <OPBIT1>
+	    <address>
+			<1>0x8002</1>
+		 </address>
+		<Fix_High></Fix_High>
+	</OPBIT1>  
+	<OPBIT2>
+		<address>
+			<1>0x8003</1>
+		 </address>
+		 <ROTP>
+			<annotation>OTP低功耗模式选择</annotation>
+			<bit>BIT[1]</bit>
+			<0>OTP低功耗模式关闭</0>
+			<1>OTP低功耗模式打开</1>
+		 </ROTP>
+		<IODRV>
+		    <annotation>IO输出驱动选择</annotation>
+			<bit>BIT[1]</bit>
+			<0>弱驱动</0>
+			<1>正常驱动</1>
+		</IODRV>
+		<RDPORT>
+		    <annotation>IO作为输出口时，读端口方式</annotation>
+			<bit>BIT[2]</bit>
+			<0>从寄存器读</0>
+			<1>从端口读</1>
+		</RDPORT>
+		<SMTEN>
+		    <annotation>端口施密特使能</annotation>
+			<bit>BIT[3]</bit>
+			<0>屏蔽端口施密特功能</0>
+			<1>使能端口施密特功能</1>
+		</SMTEN>
+		<MCUSEL>
+		    <annotation>芯片兼容选择</annotation>
+			<bit>BIT[4]</bit>
+			<0>义隆</0>
+			<1>菲林</1>
+		</MCUSEL>
+		<SMTSEL>
+		    <annotation>端口施密特阈值选择</annotation>
+			<bit>BIT[5]</bit>
+			<0>1.77V/1.1V</0>
+			<1>0.7VDD/0.3VDD</1>
+		</SMTSEL>
+		<FILS >
+		    <annotation>时钟滤波选择位</annotation>
+			<bit>BIT[6]</bit>
+			<0>有滤波</0>
+			<1>无滤波</1>
+		</FILS>
+		<ODSEL>
+		    <annotation>P13端口模式选择</annotation>
+			<bit>BIT[7]</bit>
+			<0>P13为输入/开漏输出口</0>
+			<1>P13为输入口</1>
+		</ODSEL>
+		<OSCM>
+		    <annotation>振荡器模式选择</annotation>
+			<bit>BIT[10:8]</bit>
+			<000>低频晶体振荡器模式32K</000>
+			<001>高频晶体振荡器模式4M</001>
+			<010>内部高频RC振荡器</010>
+			<011>内部高频RC振荡器模式RTC32K模式</011>
+			<100>禁用</100>
+			<101>高频晶体振荡器模式455K</101>
+			<110>内部高频RC振荡器</110>
+			<111>禁用</111>
+		</OSCM>
+		<XTDRVB>
+		    <annotation>高频晶体振荡器振荡器驱动能力选择</annotation>
+			<bit>BIT[11]</bit>
+			<0>增强</0>
+			<1>不增强</1>
+		</XTDRVB>
+		<VDSEL>
+		    <annotation>内部16M高频振荡器电压选择位</annotation>
+			<bit>BIT[12]</bit>
+			<0>1.7V</0>
+			<1>1.9V</1>
+		</VDSEL>
+		
+		<RESSEL>
+		    <annotation>上拉电阻选择位</annotation>
+			<bit>BIT[13]</bit>
+			<0>80k</0>
+			<1>20k</1>
+		</RESSEL>
+		
+	</OPBIT2> 
+	<OPBIT3>
+	    <1>OPBIT3</1>
+		<FAS>
+		    <annotation>模拟选择RC频率</annotation>
+			<bit>BIT[2:0]</bit>
+			<000>16M</000>
+			<001>8M</001>
+			<010>4M</010>
+			<011>2M</011>
+			<100>1M</100>
+			<101>455K</101>
+		</FAS>
+		<FDS>
+			<annotation>数字选择RC频率</annotation>
+			<bit>BIT[4:3]</bit>
+			<11>FHRC</11>
+			<10>FHRC/2</10>
+			<01>FHRC/4</01>
+			<00>FHRC/8</00>
+		</FDS>
+		<RCSMTB>
+		    <annotation>施密特滤波使能</annotation>
+			<bit>BIT[5]</bit>
+			<0>使能</0>
+			<1>不使能</1>
+		</RCSMTB>
+	</OPBIT3>
+    
+	
+ </OPTION>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
